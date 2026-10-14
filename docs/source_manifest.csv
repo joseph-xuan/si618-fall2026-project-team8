@@ -1,0 +1,4 @@
+source,publisher,url,local_file,download_date,license_or_terms,release_or_version,observation_period,verification_status
+IPEDS directory,NCES,https://nces.ed.gov/ipeds/datacenter/data/HD2019.zip,data/raw/ipeds_2019/hd2019.csv,2026-10-14,terms_pending_verification,HD2019,2019,downloaded_extracted_dictionary_checked
+IPEDS fall enrollment,NCES,https://nces.ed.gov/ipeds/datacenter/data/EF2019A.zip,data/raw/ipeds_2019/ef2019a_rv.csv,2026-10-14,terms_pending_verification,EF2019A revised CSV,Fall 2019,downloaded_extracted_dictionary_checked_enrollment_join_pending
+Automotive classified listings,winddude,https://www.kaggle.com/datasets/winddude/15-years-automotive-classified-from-20192010,data/raw/winddude_automotive_2019_2020/extracted/dump1.json,2026-10-14,Other (specified in description) - detailed terms pending,1,full date range in processing metadata - sample restricted to 2019,downloaded_extracted_fully_scanned_sample_generated

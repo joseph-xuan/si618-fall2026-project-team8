@@ -1,0 +1,17 @@
+{
+  "scope": "US 50 states + DC; ICLEVEL=1; DEGGRANT=1; ACT stripped in A/N/R",
+  "candidate_universities": 2781,
+  "sample": "D:\\course_file\\2026_fall\\SI_618\\si618-fall2026-project-team8\\data\\processed\\vehicles_us_2019_sample.parquet",
+  "radii_miles": [
+    5,
+    10,
+    20
+  ],
+  "notes": [
+    "30/100 counts are coverage diagnostics, not adopted exclusion thresholds.",
+    "College density uses all candidate universities, not a sample of universities.",
+    "Candidate institution scope remains provisional.",
+    "Campus areas can overlap; summing counts does not produce unique national listings.",
+    "This is a coverage check, not a final IPEDS enrollment join."
+  ]
+}

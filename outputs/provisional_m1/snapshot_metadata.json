@@ -1,0 +1,11 @@
+{
+  "status": "PROVISIONAL \u2014 subset of an incomplete source scan, not a national random sample",
+  "seed": 6182019,
+  "committed_rowid_cap": 4760000,
+  "snapshot_rows": 100000,
+  "selection": "uniform sample of committed SQLite row IDs <= cap; no deletes observed; concurrent updates may occur during read",
+  "extracted_at_utc": "2026-10-14T13:55:40.690050+00:00",
+  "parquet_sha256": "1ed801f9d661de1491e3d4016f8aff28a5759c016c0419ae0ddba7d692ab31d6",
+  "full_source_rows": "Unknown until the original scan finishes",
+  "full_source_bytes": 49526352322
+}

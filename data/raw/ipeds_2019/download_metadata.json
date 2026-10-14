@@ -1,0 +1,67 @@
+{
+  "dataset_year": 2019,
+  "download_date": "2026-10-14",
+  "downloaded_at_utc": "2026-10-14T12:43:30.157544+00:00",
+  "files": [
+    {
+      "name": "HD2019.zip",
+      "publisher": "NCES / IPEDS",
+      "source_url": "https://nces.ed.gov/ipeds/datacenter/data/HD2019.zip",
+      "bytes": 1048337,
+      "sha256": "727cb3484666e5fea8669ce0fb2ad4606ed19531b47cf428d6748072d7e7ab26",
+      "entries": [
+        {
+          "name": "hd2019.csv",
+          "bytes": 4159082
+        }
+      ],
+      "verification": "full ZIP CRC passed"
+    },
+    {
+      "name": "EF2019A.zip",
+      "publisher": "NCES / IPEDS",
+      "source_url": "https://nces.ed.gov/ipeds/datacenter/data/EF2019A.zip",
+      "bytes": 5956711,
+      "sha256": "6ad08d19451a5a777acff44623f992a250a730fc30388da73b1b74be418b3c24",
+      "entries": [
+        {
+          "name": "ef2019a.csv",
+          "bytes": 25707362
+        },
+        {
+          "name": "ef2019a_rv.csv",
+          "bytes": 25712950
+        }
+      ],
+      "verification": "full ZIP CRC passed"
+    },
+    {
+      "name": "HD2019_Dict.zip",
+      "publisher": "NCES / IPEDS",
+      "source_url": "https://nces.ed.gov/ipeds/datacenter/data/HD2019_Dict.zip",
+      "bytes": 224697,
+      "sha256": "3200e733eed31ba315950c03cb68ff899d1418b5e182dcbca1a1b1d92893ccd7",
+      "entries": [
+        {
+          "name": "hd2019.xlsx",
+          "bytes": 235246
+        }
+      ],
+      "verification": "full ZIP CRC passed"
+    },
+    {
+      "name": "EF2019A_Dict.zip",
+      "publisher": "NCES / IPEDS",
+      "source_url": "https://nces.ed.gov/ipeds/datacenter/data/EF2019A_Dict.zip",
+      "bytes": 56225,
+      "sha256": "13974d784f123de116866c09bf002c6e6ade44367aad8548bcd115598d9f05cd",
+      "entries": [
+        {
+          "name": "ef2019a.xlsx",
+          "bytes": 68107
+        }
+      ],
+      "verification": "full ZIP CRC passed"
+    }
+  ]
+}

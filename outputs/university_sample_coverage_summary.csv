@@ -1,0 +1,4 @@
+radius_miles,candidate_universities,universities_with_no_sample_listings,universities_with_30plus_sample_listings,universities_with_100plus_sample_listings,universities_with_30plus_known_brand,universities_with_100plus_known_brand,median_sample_listings_per_university,median_known_brand_per_university
+5,2781,38,2265,1838,2241,1800,218.0,200.0
+10,2781,18,2457,2163,2431,2140,592.0,553.0
+20,2781,7,2640,2428,2623,2400,1368.0,1270.0

@@ -1,0 +1,16 @@
+__pycache__/
+.venv/
+.pipeline_deps/
+# Original automotive source and download archives stay local.
+data/raw/winddude_automotive_2019_2020/*.zip
+data/raw/winddude_automotive_2019_2020/*.tar.xz
+data/raw/winddude_automotive_2019_2020/extracted/
+*.part
+*.partial
+# The large derived database is distributed through a repository release.
+data/processed/*.sqlite
+data/processed/*.sqlite-*
+outputs/transfer/
+# Installable dependencies and generated editor caches.
+outputs/provisional_m1/runtime/
+__marimo__/
