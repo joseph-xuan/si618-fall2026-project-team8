@@ -57,9 +57,13 @@ def main(publish):
     manifest["release_url"] = release["html_url"]
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     if publish:
-        response = session.patch(release["url"], json={"draft": False}, timeout=30)
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+        response = session.patch(release["url"], json={"draft": False, "target_commitish": head}, timeout=30)
         response.raise_for_status()
-        print("Published:", response.json()["html_url"], flush=True)
+        published = response.json()
+        manifest["release_url"] = published["html_url"]
+        manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+        print("Published:", published["html_url"], flush=True)
     else:
         print("All assets uploaded to draft release; publish after pushing the repository.", flush=True)
 

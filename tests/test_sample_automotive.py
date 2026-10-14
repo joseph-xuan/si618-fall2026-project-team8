@@ -49,6 +49,10 @@ class SamplingTests(unittest.TestCase):
             self.assertNotIn("description", first)
             all_rows = pipeline.sample(root / "intermediate.sqlite", source, root / "all", root / "reports_all", 50, 618, 2019)
             self.assertEqual(all_rows.loc[all_rows.source_record_id.eq("0"), "price_usd"].iloc[0], 9000)
+            source.unlink()
+            moved = pipeline.sample(root / "intermediate.sqlite", source, root / "moved", root / "reports_moved", 7, 618, 2019)
+            self.assertEqual(first["listing_key"].tolist(), moved["listing_key"].tolist())
+            self.assertFalse(json.loads((root / "reports_moved" / "automotive_sample_metadata.json").read_text())["source_available_during_sampling"])
 
     def test_missing_attributes_do_not_remove_listings(self):
         from collections import Counter

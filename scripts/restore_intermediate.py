@@ -11,7 +11,7 @@ import json
 import os
 from pathlib import Path
 import shutil
-import urllib.request
+import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -69,8 +69,12 @@ def main():
                 url = part["asset_api_url"]
                 request_headers["Accept"] = "application/octet-stream"
             temp = path.with_name(path.name + ".partial")
-            with urllib.request.urlopen(urllib.request.Request(url, headers=request_headers), timeout=120) as response, temp.open("wb") as output:
-                shutil.copyfileobj(response, output, 16*1024*1024)
+            # requests removes authorization on redirects to a different host.
+            with requests.get(url, headers=request_headers, stream=True, timeout=(30,120)) as response:
+                response.raise_for_status()
+                with temp.open("wb") as output:
+                    for block in response.iter_content(chunk_size=16*1024*1024):
+                        output.write(block)
             temp.rename(path)
         digest = hashlib.sha256()
         with path.open("rb") as stream:

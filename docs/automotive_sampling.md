@@ -47,7 +47,7 @@ To reuse a completed scan for a larger sample while retaining the first output:
 python scripts/sample_automotive.py --reuse-intermediate --sample-size 1000000 --seed 6182019 --output-dir data/processed/sample_1m --report-dir outputs/sample_1m
 ```
 
-The script refuses to overwrite an existing sample or start a new scan over an existing intermediate. An interrupted scan is not marked complete and cannot be reused for sampling. To restart after an interrupted scan, choose a new `--database` path or explicitly manage the incomplete file. Source size and modification time must match the completed intermediate.
+The script refuses to overwrite an existing sample or start a new scan over an existing intermediate. An interrupted scan is not marked complete and cannot be reused for sampling. To restart after an interrupted scan, choose a new `--database` path or explicitly manage the incomplete file. If the original source is present, its size and modification time must match the completed intermediate. On another computer, the completed intermediate can be reused without the original source; its recorded provenance is retained and source availability is explicitly recorded.
 
 ## Outputs
 
