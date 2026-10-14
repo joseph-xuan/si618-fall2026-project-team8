@@ -1,0 +1,31 @@
+{
+  "completed": true,
+  "files": [
+    {
+      "archive": "HD2019.zip",
+      "file": "hd2019.csv",
+      "bytes": 4159082
+    },
+    {
+      "archive": "EF2019A.zip",
+      "file": "ef2019a.csv",
+      "bytes": 25707362
+    },
+    {
+      "archive": "EF2019A.zip",
+      "file": "ef2019a_rv.csv",
+      "bytes": 25712950
+    },
+    {
+      "archive": "HD2019_Dict.zip",
+      "file": "hd2019.xlsx",
+      "bytes": 235246
+    },
+    {
+      "archive": "EF2019A_Dict.zip",
+      "file": "ef2019a.xlsx",
+      "bytes": 68107
+    }
+  ],
+  "verification": "ZIP entries read with CRC validation; extracted sizes matched"
+}

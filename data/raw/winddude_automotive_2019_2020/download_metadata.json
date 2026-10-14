@@ -1,0 +1,18 @@
+{
+  "source_url": "https://www.kaggle.com/datasets/winddude/15-years-automotive-classified-from-20192010",
+  "publisher": "winddude",
+  "version": 1,
+  "download_date": "2026-10-14",
+  "license_as_reported": "Other (specified in description)",
+  "archive_bytes": 7451133794,
+  "zip_entries": [
+    {
+      "name": "dump1.tar.xz",
+      "compressed_bytes": 7451133556,
+      "uncompressed_bytes": 7448861496,
+      "crc32": "0bbaf704"
+    }
+  ],
+  "verification": "HTTP content length, full ZIP CRC check, and SHA256 computed",
+  "sha256": "9a48075bcc670ade9112cdd919f4af4de0c6483f3db955c6476ef17e5e3deced"
+}

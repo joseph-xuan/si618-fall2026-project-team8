@@ -1,0 +1,12 @@
+{
+  "source_archive": "D:\\course_file\\2026_fall\\SI_618\\si618-fall2026-project-team8\\data\\raw\\winddude_automotive_2019_2020\\dump1.tar.xz",
+  "extracted_files": [
+    {
+      "path": "D:\\course_file\\2026_fall\\SI_618\\si618-fall2026-project-team8\\data\\raw\\winddude_automotive_2019_2020\\extracted\\dump1.json",
+      "bytes": 49526352322
+    }
+  ],
+  "completed": true,
+  "verification": "TAR file sizes matched; XZ stream read to EOF with integrity checking",
+  "elapsed_seconds": 831.2
+}

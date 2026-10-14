@@ -1,0 +1,25 @@
+{
+  "repository": "joseph-xuan/si618-fall2026-project-team8",
+  "release_tag": "data-transfer-2026-10-14",
+  "format": "concatenated gzip stream split into ordered parts",
+  "target_path": "data/processed/automotive_us_2019.sqlite",
+  "uncompressed_bytes": 7964008448,
+  "uncompressed_sha256": "df6619bbc3c855728a254103838785b5c2b86f6939ed5ae4b51063149e31327b",
+  "parts": [
+    {
+      "name": "automotive_us_2019.sqlite.gz.part001",
+      "bytes": 1073741824,
+      "sha256": "4cccd5400d888dcb3bc3f6ef6b88078aee0a8245ef3fe149c7ae9964525c6150",
+      "url": "https://github.com/joseph-xuan/si618-fall2026-project-team8/releases/download/untagged-38234a9712b031c05506/automotive_us_2019.sqlite.gz.part001",
+      "asset_api_url": "https://api.github.com/repos/joseph-xuan/si618-fall2026-project-team8/releases/assets/640610814"
+    },
+    {
+      "name": "automotive_us_2019.sqlite.gz.part002",
+      "bytes": 993156157,
+      "sha256": "70dea9dfa1cb09c4342f89f657755b565d5826fb6a5faa175a6f442afc457b83",
+      "url": "https://github.com/joseph-xuan/si618-fall2026-project-team8/releases/download/untagged-38234a9712b031c05506/automotive_us_2019.sqlite.gz.part002",
+      "asset_api_url": "https://api.github.com/repos/joseph-xuan/si618-fall2026-project-team8/releases/assets/640658906"
+    }
+  ],
+  "release_url": "https://github.com/joseph-xuan/si618-fall2026-project-team8/releases/tag/data-transfer-2026-10-14"
+}

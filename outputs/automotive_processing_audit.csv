@@ -1,0 +1,8 @@
+step,rows,removed_since_previous
+raw_records,20131746,
+after_us_filter,14675606,5456140.0
+after_posting_year_filter,8904012,5771594.0
+after_valid_coordinates,8799791,104221.0
+after_listing_identity,8799791,0.0
+after_deduplication,8799791,0.0
+random_sample,500000,8299791.0

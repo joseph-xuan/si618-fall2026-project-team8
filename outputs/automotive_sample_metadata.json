@@ -1,0 +1,335 @@
+{
+  "scan_complete": true,
+  "source_path": "D:\\course_file\\2026_fall\\SI_618\\si618-fall2026-project-team8\\data\\raw\\winddude_automotive_2019_2020\\extracted\\dump1.json",
+  "source_bytes": 49526352322,
+  "source_mtime_ns": 1791954569828257500,
+  "posting_year": 2019,
+  "audit": {
+    "raw_records": 20131746,
+    "after_us_filter": 14675606,
+    "after_posting_year_filter": 8904012,
+    "after_valid_coordinates": 8799791,
+    "after_listing_identity": 8799791,
+    "next_model_year_age_missing": 27142,
+    "invalid_model_year_set_missing": 44,
+    "after_deduplication": 8799791,
+    "duplicate_eligible_records_removed": 0
+  },
+  "diagnostics": {
+    "raw_country_counts": {
+      "US": 14675606,
+      "CA": 5386749,
+      "MX": 57168,
+      "BE": 86,
+      "NI": 1208,
+      "CN": 1160,
+      "FR": 827,
+      "CR": 1474,
+      "DE": 38,
+      "TH": 794,
+      "NZ": 157,
+      "IT": 699,
+      "JP": 1936,
+      "IQ": 2,
+      "ZA": 148,
+      "PA": 416,
+      "FI": 103,
+      "AE": 171,
+      "TR": 16,
+      "SV": 103,
+      "CL": 18,
+      "BR": 24,
+      "IE": 129,
+      "IL": 97,
+      "EC": 22,
+      "AU": 523,
+      "GT": 118,
+      "TN": 69,
+      "CZ": 69,
+      "HR": 177,
+      "PH": 160,
+      "IN": 414,
+      "PT": 41,
+      "BD": 26,
+      "DK": 132,
+      "AR": 16,
+      "DO": 75,
+      "PL": 19,
+      "GH": 33,
+      "MY": 102,
+      "BG": 8,
+      "AT": 37,
+      "CO": 87,
+      "TW": 14,
+      "KE": 40,
+      "BO": 4,
+      "VE": 11,
+      "KW": 28,
+      "ES": 24,
+      "PE": 15,
+      "MA": 17,
+      "missing": 233,
+      "GR": 5,
+      "NO": 4,
+      "GB": 8,
+      "LT": 2,
+      "VN": 21,
+      "UA": 5,
+      "PK": 4,
+      "NL": 25,
+      "ID": 2,
+      "HU": 11,
+      "RO": 3,
+      "NG": 2,
+      "IS": 2,
+      "OM": 1,
+      "EE": 1,
+      "ET": 2,
+      "CH": 1,
+      "MN": 1,
+      "RS": 1,
+      "SE": 1,
+      "CY": 1
+    },
+    "us_posting_year_counts": {
+      "2019": 8904012,
+      "2020": 5771594
+    },
+    "eligible_brand_match_counts": {
+      "matched": 8180623,
+      "unrecognized": 450836,
+      "missing": 168332
+    },
+    "eligible_missing_counts_before_dedup": {
+      "manufacturer": 619168,
+      "is_japanese_brand": 619168,
+      "body_style_raw": 2979703,
+      "body_style": 3067682,
+      "mileage_raw": 2312404,
+      "vehicle_age": 32083,
+      "transmission": 39126,
+      "model_year": 4941,
+      "price_usd": 529869,
+      "make_model_raw": 167703,
+      "state_code": 167627,
+      "currency_code": 60664
+    }
+  },
+  "scan_seconds": 1271.0,
+  "sample_method": "uniform reservoir sample without replacement after deduplication; deterministic SQLite insertion order",
+  "seed": 6182019,
+  "requested_sample_size": 500000,
+  "sample_rows": 500000,
+  "sample_columns": 22,
+  "eligible_unique_listings": 8799791,
+  "inclusion_probability": 0.056819531282049765,
+  "sample_path": "D:\\course_file\\2026_fall\\SI_618\\si618-fall2026-project-team8\\data\\processed\\vehicles_us_2019_sample.parquet",
+  "sample_bytes": 45138586,
+  "sample_sha256": "6b6544397bc0a4ad2d85951a6ec1d1e1ef4ace8f55e34f83e173db40021320dc",
+  "generated_at_utc": "2026-10-14T14:06:46.020852+00:00",
+  "script_sha256": "494573a9b0a5b79fadf5ad5bd0f49ea07edccb3bad4eb2c608bb66005f9a73a1",
+  "libraries": {
+    "ijson": "3.6.0",
+    "pandas": "2.2.2",
+    "pyarrow": "16.1.0"
+  },
+  "brand_aliases": {
+    "acura": [
+      "acura"
+    ],
+    "alfa-romeo": [
+      "alfa romeo"
+    ],
+    "aston-martin": [
+      "aston martin"
+    ],
+    "audi": [
+      "audi"
+    ],
+    "bentley": [
+      "bentley"
+    ],
+    "bmw": [
+      "bmw"
+    ],
+    "buick": [
+      "buick"
+    ],
+    "cadillac": [
+      "cadillac"
+    ],
+    "chevrolet": [
+      "chevrolet",
+      "chevy"
+    ],
+    "chrysler": [
+      "chrysler"
+    ],
+    "dodge": [
+      "dodge"
+    ],
+    "ferrari": [
+      "ferrari"
+    ],
+    "fiat": [
+      "fiat"
+    ],
+    "ford": [
+      "ford"
+    ],
+    "genesis": [
+      "genesis"
+    ],
+    "gmc": [
+      "gmc"
+    ],
+    "honda": [
+      "honda"
+    ],
+    "hyundai": [
+      "hyundai"
+    ],
+    "infiniti": [
+      "infiniti"
+    ],
+    "isuzu": [
+      "isuzu"
+    ],
+    "jaguar": [
+      "jaguar"
+    ],
+    "jeep": [
+      "jeep"
+    ],
+    "kia": [
+      "kia"
+    ],
+    "lamborghini": [
+      "lamborghini"
+    ],
+    "land-rover": [
+      "land rover",
+      "range rover"
+    ],
+    "lexus": [
+      "lexus"
+    ],
+    "lincoln": [
+      "lincoln"
+    ],
+    "lotus": [
+      "lotus"
+    ],
+    "maserati": [
+      "maserati"
+    ],
+    "mazda": [
+      "mazda"
+    ],
+    "mercedes-benz": [
+      "mercedes benz",
+      "mercedes"
+    ],
+    "mercury": [
+      "mercury"
+    ],
+    "mini": [
+      "mini cooper",
+      "mini"
+    ],
+    "mitsubishi": [
+      "mitsubishi"
+    ],
+    "nissan": [
+      "nissan",
+      "datsun"
+    ],
+    "oldsmobile": [
+      "oldsmobile"
+    ],
+    "plymouth": [
+      "plymouth"
+    ],
+    "pontiac": [
+      "pontiac"
+    ],
+    "porsche": [
+      "porsche"
+    ],
+    "ram": [
+      "ram"
+    ],
+    "rolls-royce": [
+      "rolls royce"
+    ],
+    "saab": [
+      "saab"
+    ],
+    "saturn": [
+      "saturn"
+    ],
+    "scion": [
+      "scion"
+    ],
+    "smart": [
+      "smart"
+    ],
+    "subaru": [
+      "subaru"
+    ],
+    "suzuki": [
+      "suzuki"
+    ],
+    "tesla": [
+      "tesla"
+    ],
+    "toyota": [
+      "toyota"
+    ],
+    "volkswagen": [
+      "volkswagen",
+      "vw"
+    ],
+    "volvo": [
+      "volvo"
+    ]
+  },
+  "japanese_brand_list": [
+    "acura",
+    "honda",
+    "infiniti",
+    "isuzu",
+    "lexus",
+    "mazda",
+    "mitsubishi",
+    "nissan",
+    "scion",
+    "subaru",
+    "suzuki",
+    "toyota"
+  ],
+  "body_style_mapping": {
+    "sedan": "sedan",
+    "suv": "suv",
+    "pickup": "pickup",
+    "truck": "truck",
+    "coupe": "coupe",
+    "convertible": "convertible",
+    "hatchback": "hatchback",
+    "wagon": "wagon",
+    "van": "van",
+    "mini van": "minivan",
+    "minivan": "minivan",
+    "offroad": "offroad",
+    "off road": "offroad",
+    "bus": "bus",
+    "other": "other"
+  },
+  "limitations": [
+    "Mileage unit has not been verified; mileage_raw is not used in the research questions.",
+    "Coordinates are range-checked, not verified against US boundaries.",
+    "Brand extraction is conservative and provisional; unknown/ambiguous models remain missing.",
+    "Simple random sampling does not ensure sufficient listings near every university.",
+    "Next-model-year listings retain model year but have missing vehicle_age."
+  ]
+}
