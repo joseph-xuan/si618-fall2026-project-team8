@@ -13,6 +13,24 @@ __generated_with = "0.25.1"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Student composition and used-car markets across counties and CBSAs
+
+    ## Title and group
+
+    **SI 618 · Milestone 2 · Team 8 · Analysis prepared November 9, 2026**
+
+    Yingjie Wang (**jennywyj**) · Shuxuan Liu (**shuxuan**) · Xiaoxuan Huang (**xixixuan**)
+
+    We examine associations in advertised used-car supply in 2019. County is the primary
+    unit; a second partition combines counties within CBSAs and retains non-CBSA counties
+    separately. Neither partition identifies students' purchases or individual preferences.
+    """)
+    return
+
+
 @app.cell
 def _():
     import base64
@@ -30,7 +48,7 @@ def _():
     from scipy import stats
     import statsmodels.formula.api as smf
     from statsmodels.stats.multitest import multipletests
-    plt.rcParams.update({"font.size":10,"axes.spines.top":False,"axes.spines.right":False,"figure.dpi":130})
+    plt.rcParams.update({"font.size":11,"axes.spines.top":False,"axes.spines.right":False,"figure.dpi":120})
     return (
         Path,
         base64,
@@ -51,26 +69,10 @@ def _():
 
 
 @app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    # Student composition and used-car markets across counties and CBSAs
-
-    ## Title and group
-
-    **SI 618 · Milestone 2 · Team 8 · Analysis prepared November 9, 2026**
-
-    Yingjie Wang (**jennywyj**) · Shuxuan Liu (**shuxuan**) · Xiaoxuan Huang (**xixixuan**)
-
-    We examine associations in advertised used-car supply in 2019. County is the primary
-    unit; a second partition combines counties within CBSAs and retains non-CBSA counties
-    separately. Neither partition identifies students' purchases or individual preferences.
-    """)
-    return
-
-
-@app.cell(hide_code=True)
 def _(mo, spatial_audit):
     mo.md(f"""
+    ---
+
     ## Response to feedback
 
     **Place and confounding.** The feedback supplied for this revision asks how to separate
@@ -102,6 +104,8 @@ def _(mo, spatial_audit):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    ---
+
     ## Research questions
 
     ### RQ1
@@ -582,7 +586,7 @@ def _(mo, multipletests, np, pd, plt, smf, stats):
             "omitted_area":omitted,"coefficient_omit_most_influential":alternative["coefficient"]}
 
     def residual_plot(bundles,titles):
-        fig,axes = plt.subplots(len(bundles),2,figsize=(9,3.1*len(bundles)),squeeze=False,layout="constrained")
+        fig,axes = plt.subplots(len(bundles),2,figsize=(10.5,3.4*len(bundles)),squeeze=False,layout="constrained")
         for row,(bundle,title) in enumerate(zip(bundles,titles)):
             model = bundle["ordinary"]
             axes[row,0].scatter(model.fittedvalues,model.resid,s=13,alpha=.45)
@@ -593,7 +597,7 @@ def _(mo, multipletests, np, pd, plt, smf, stats):
         return fig
 
     def coefficient_plot(results,outcomes,title):
-        fig,ax = plt.subplots(figsize=(9,max(3.5,len(outcomes)*.55)),layout="constrained")
+        fig,ax = plt.subplots(figsize=(10.5,max(5,len(outcomes)*.55)),layout="constrained")
         for offset,scale,color in [(-.13,"County","#21688f"),(.13,"CBSA + outside counties","#b96a3c")]:
             use = results[(results["partition"]==scale)&(results["spec"]=="full")&(results["covariance"]=="HC3")].set_index("outcome").loc[outcomes]
             ax.errorbar(use["coefficient"],np.arange(len(outcomes))+offset,
@@ -621,6 +625,8 @@ def _(mo, multipletests, np, pd, plt, smf, stats):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    ---
+
     ## Question 1: Do areas with higher international student shares across their universities have different brand compositions in local used-car listings?
 
     ### Approach
@@ -670,7 +676,7 @@ def _(residual_plot, rq1_models):
 @app.cell(hide_code=True)
 def _(mo, pick, rq1_diagnostics, rq1_results):
     mo.md(f"""
-    **How the checks affect the method.** The county Ford residual skew is
+    **Figure 1.** The county Ford residual skew is
     {rq1_diagnostics.iloc[0]['residual_skew']:.2f}, maximum leverage is
     {rq1_diagnostics.iloc[0]['max_leverage']:.3f}, and
     {int(rq1_diagnostics.iloc[0]['cooks_above_4_over_n'])} areas exceed the 4/n Cook's-distance
@@ -698,11 +704,12 @@ def _(result_table, rq1_results):
 @app.cell
 def _(brand_outcomes, plt, quartiles, rq1_county):
     _groups = rq1_county.assign(group=quartiles(rq1_county["international_student_share"]))
-    _composition = _groups.groupby("group",observed=True)[brand_outcomes].mean()
+    _display_brands = rq1_county[brand_outcomes].mean().nlargest(7).index
+    _composition = _groups.groupby("group",observed=True)[list(_display_brands)].mean()
     _composition["Other known brands"] = 1-_composition.sum(axis=1)
     _composition.columns = [s.removeprefix("brand_").title() for s in _composition.columns]
-    fig_rq1, _ax = plt.subplots(figsize=(9,4.8),layout="constrained")
-    (_composition*100).plot.bar(stacked=True,ax=_ax,width=.7,colormap="tab20")
+    fig_rq1, _ax = plt.subplots(figsize=(10.5,5.5),layout="constrained")
+    (_composition*100).plot.bar(stacked=True,ax=_ax,width=.65)
     _n = _groups.groupby("group",observed=True).size()
     _ax.set_xticklabels([str(g)+chr(10)+f"n={_n[g]}" for g in _composition.index],rotation=0)
     _ax.set(title="County brand composition across international-share groups",xlabel="International share, low to high",ylabel="Mean county brand share (%)",ylim=(0,100))
@@ -711,9 +718,34 @@ def _(brand_outcomes, plt, quartiles, rq1_county):
     return
 
 
+@app.cell(hide_code=True)
+def _(mo, rq1_county):
+    mo.md(f"""
+    **Figure 2.** This comparison uses {len(rq1_county):,} counties. The seven largest
+    mean shares among the tested brands are displayed separately; “Other known brands”
+    combines the remaining known brands. Unknown brands are excluded from the denominator,
+    and each county receives equal weight. Groups run from lower to higher international
+    student shares; the county count appears below each group.
+    """)
+    return
+
+
 @app.cell
 def _(brand_outcomes, coefficient_plot, rq1_results):
     coefficient_plot(rq1_results,brand_outcomes,"International share +10 percentage points: brand associations")
+    return
+
+
+@app.cell(hide_code=True)
+def _(brand_outcomes, mo, pick, rq1_results):
+    mo.md(f"""
+    **Figure 3.** Adjusted associations for all {len(brand_outcomes)} tested brands are
+    shown for {int(pick(rq1_results,'County','brand_ford')['n']):,} counties and
+    {int(pick(rq1_results,'CBSA + outside counties','brand_ford')['n']):,} CBSA/outside-county
+    regions. Points are percentage-point differences per ten-point increase in international
+    student share; bars are 95% HC3 intervals. Overlapping intervals and different significance
+    labels do not establish that the two partitions have different coefficients.
+    """)
     return
 
 
@@ -743,6 +775,8 @@ def _(mo, pick, rq1_county, rq1_results):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    ---
+
     ## Question 2: Do areas with higher graduate student shares across their universities have different distributions of body styles and vehicle ages in local used-car listings?
 
     ### Approach
@@ -800,7 +834,7 @@ def _(residual_plot, rq2_models):
 @app.cell(hide_code=True)
 def _(missing_table, mo, rq2_age, rq2_body, rq2_diagnostics):
     mo.md(f"""
-    **Assumptions in this sample.** The SUV sample contains {len(rq2_body)} counties and the
+    **Figure 4.** The SUV sample contains {len(rq2_body)} counties and the
     age sample {len(rq2_age)}. Their residual skews are
     {rq2_diagnostics.iloc[0]['residual_skew']:.2f} and {rq2_diagnostics.iloc[1]['residual_skew']:.2f};
     maximum leverage is {rq2_diagnostics.iloc[0]['max_leverage']:.3f} and
@@ -827,14 +861,28 @@ def _(result_table, rq2_results):
 def _(body_styles, plt, quartiles, rq2_body):
     _body_group = rq2_body.assign(group=quartiles(rq2_body["graduate_student_share"]))
     _body_columns = ["body_"+b for b in body_styles]
-    _body_mean = _body_group.groupby("group",observed=True)[_body_columns].mean()
-    _body_mean.columns = [c.removeprefix("body_").title() for c in _body_mean.columns]
-    fig_rq2_body,_ax = plt.subplots(figsize=(9,4.8),layout="constrained")
-    (_body_mean*100).plot.bar(stacked=True,ax=_ax,colormap="tab20",width=.7)
+    _display_styles = rq2_body[_body_columns].mean().nlargest(6).index
+    _body_mean = _body_group.groupby("group",observed=True)[list(_display_styles)].mean()
+    _body_mean["Other known styles"] = 1-_body_mean.sum(axis=1)
+    _body_mean.columns = [c.removeprefix("body_").title().replace("Suv","SUV") for c in _body_mean.columns]
+    fig_rq2_body,_ax = plt.subplots(figsize=(10.5,5.5),layout="constrained")
+    (_body_mean*100).plot.bar(stacked=True,ax=_ax,width=.65)
     _ax.set(title="County body styles across graduate-share groups",xlabel="Graduate share, low to high",ylabel="Mean county body-style share (%)",ylim=(0,100))
-    _ax.tick_params(axis="x",rotation=0)
+    _body_counts = _body_group.groupby("group",observed=True).size()
+    _ax.set_xticklabels([str(g)+chr(10)+f"n={_body_counts[g]}" for g in _body_mean.index],rotation=0)
     _ax.legend(bbox_to_anchor=(1.02,1),loc="upper left",fontsize=8)
     fig_rq2_body
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo, rq2_body):
+    mo.md(f"""
+    **Figure 5.** This comparison uses {len(rq2_body):,} counties. Six body styles are
+    displayed separately; the remaining known styles are pooled only in this figure, losing
+    their individual visual detail. Unknown styles are excluded, and the regression table
+    still reports every observed category separately.
+    """)
     return
 
 
@@ -843,7 +891,7 @@ def _(mo, np, plt, quartiles, rq2_age):
     _age_group = rq2_age.assign(group=quartiles(rq2_age["graduate_student_share"]))
     age_distribution = _age_group.groupby("group",observed=True)[["age_q10","age_q25","age_median","age_q75","age_q90"]].mean()
     age_distribution["n_counties"] = _age_group.groupby("group",observed=True).size()
-    fig_rq2_age,_ax = plt.subplots(figsize=(8,4.6),layout="constrained")
+    fig_rq2_age,_ax = plt.subplots(figsize=(9,5),layout="constrained")
     _x = np.arange(len(age_distribution))
     _ax.fill_between(_x,age_distribution["age_q10"],age_distribution["age_q90"],alpha=.15,color="#21688f",label="Mean within-county 10th–90th percentiles")
     _ax.fill_between(_x,age_distribution["age_q25"],age_distribution["age_q75"],alpha=.25,color="#21688f",label="Mean within-county 25th–75th percentiles")
@@ -858,7 +906,7 @@ def _(mo, np, plt, quartiles, rq2_age):
 @app.cell(hide_code=True)
 def _(mo, pick, rq2_outcomes, rq2_results):
     mo.md(f"""
-    **Interpretation.** The age bands summarize within-county distributions and are not
+    **Figure 6.** The age bands summarize within-county distributions and are not
     confidence intervals. Body-style coefficients are percentage points; median and IQR
     coefficients are years. The table includes all {len(rq2_outcomes)} outcomes per partition.
 
@@ -880,6 +928,8 @@ def _(mo, pick, rq2_outcomes, rq2_results):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    ---
+
     ## Question 3: Do areas with higher university density have higher shares of Japanese-brand vehicles in local used-car listings?
 
     ### Approach
@@ -918,7 +968,7 @@ def _(area_tables, county, diagnose, mo, pd, run_models, sample_rows):
 
 @app.cell
 def _(plt, rq3_county):
-    fig_rq3_scatter,_axes = plt.subplots(1,2,figsize=(10,4.3),layout="constrained")
+    fig_rq3_scatter,_axes = plt.subplots(1,2,figsize=(10.5,4.8),layout="constrained")
     _points = _axes[0].scatter(rq3_county["log2_college_density"],rq3_county["japanese_share"]*100,
         c=rq3_county["log2_population_density"],cmap="viridis",s=19,alpha=.65)
     _axes[0].set(title="Unadjusted county pattern",xlabel="Log2 universities per land square mile",ylabel="Japanese-brand share (%)")
@@ -926,6 +976,17 @@ def _(plt, rq3_county):
     _axes[1].scatter(rq3_county["log2_college_density"],rq3_county["log2_population_density"],s=19,alpha=.5)
     _axes[1].set(title="University and population density",xlabel="Log2 universities per land square mile",ylabel="Log2 residents per land square mile")
     fig_rq3_scatter
+    return
+
+
+@app.cell(hide_code=True)
+def _(density_correlations, mo, rq3_county):
+    mo.md(f"""
+    **Figure 7.** The plots use {len(rq3_county):,} counties. The left panel shows the
+    unadjusted relationship, with population density shown by color. The right panel shows
+    how closely university and population density move together; their log2 correlation is
+    {density_correlations.iloc[0,1]:.3f}. Each point is a county, not an individual vehicle.
+    """)
     return
 
 
@@ -938,7 +999,7 @@ def _(residual_plot, rq3_models):
 @app.cell(hide_code=True)
 def _(density_correlations, mo, rq3_diagnostics):
     mo.md(f"""
-    **Assumptions and adjustment.** In the regression sample, log university density and
+    **Figure 8.** In the regression sample, log university density and
     log population density correlate at {density_correlations.iloc[0,1]:.3f}. Their close
     relationship makes independent coefficients less precise and prevents us from treating
     population density as a uniquely established explanation. Residual skew is
@@ -961,7 +1022,7 @@ def _(result_table, rq3_results):
 
 @app.cell
 def _(np, plt, rq3_main):
-    fig_rq3_adjustment,_ax = plt.subplots(figsize=(9,4.8),layout="constrained")
+    fig_rq3_adjustment,_ax = plt.subplots(figsize=(10.5,5.5),layout="constrained")
     _specs = ["unadjusted","state","population","full"]
     for _offset,_scale,_color in [(-.12,"County","#21688f"),(.12,"CBSA + outside counties","#b96a3c")]:
         _rows = rq3_main[rq3_main["partition"]==_scale].set_index("spec").loc[_specs]
@@ -973,6 +1034,19 @@ def _(np, plt, rq3_main):
     _ax.set(title="University density doubling: sensitivity to adjustment",xlabel="Japanese-brand share difference (percentage points); 95% HC3 interval")
     _ax.legend(fontsize=8)
     fig_rq3_adjustment
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo, pick, rq3_results):
+    mo.md(f"""
+    **Figure 9.** These comparisons hold the qualifying rows constant within each
+    partition. The county slope changes from
+    {pick(rq3_results,'County','japanese_share','state')['coefficient']:+.2f} to
+    {pick(rq3_results,'County','japanese_share','population')['coefficient']:+.2f} percentage
+    points when population density is added to state controls. The interval bars show
+    uncertainty; the change is an adjustment comparison, not evidence of a causal mechanism.
+    """)
     return
 
 
@@ -1082,6 +1156,8 @@ def _(county, mo, pick, rq3_results):
 @app.cell(hide_code=True)
 def _(mo, pick, rq1_results, rq2_results, rq3_results):
     mo.md(f"""
+    ---
+
     ## Summary of findings
 
     We studied whether the student populations of universities are associated with the
@@ -1113,21 +1189,21 @@ def _(mo, pick, rq1_results, rq2_results, rq3_results):
 
 
 @app.cell(hide_code=True)
-def _(
-    brand_outcomes,
-    cbsa,
-    county,
-    density_correlations,
-    mo,
-    pick,
-    rq1_results,
-    rq2_outcomes,
-    rq2_results,
-    rq3_results,
-):
+def _(mo):
     mo.md(f"""
+    ---
+
     ## Decision log
 
+
+    Each entry records a decision, a reasonable alternative, live evidence, and the consequence of actually running that alternative.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(cbsa, county, mo, pick, rq1_results):
+    mo.md(f"""
     ### 1. Use counties as the primary unit and CBSAs as a spatial check
 
     **Decision.** Analyze one row per county, repeating all three questions using CBSA groups
@@ -1146,7 +1222,13 @@ def _(
     with wider CBSA uncertainty. We preserve more local detail and direct county covariate
     matching, while reporting the coarser comparison. This choice is not based on which
     partition yields more significant p-values; neither is a validated purchasing market.
+    """)
+    return
 
+
+@app.cell(hide_code=True)
+def _(density_correlations, mo, pick, rq3_results):
+    mo.md(f"""
     ### 2. Use log densities and display population adjustment
 
     **Decision.** Express university density per land area on a log2 scale and show the
@@ -1165,7 +1247,13 @@ def _(
     per university-density doubling. The unadjusted geographical pattern is therefore
     insufficient evidence for an independent university association. The correlated predictors
     also limit precision; adjustment does not establish a causal explanation.
+    """)
+    return
 
+
+@app.cell(hide_code=True)
+def _(brand_outcomes, mo, pick, rq2_outcomes, rq2_results):
+    mo.md(f"""
     ### 3. Adjust related outcome tests rather than selecting small raw p-values
 
     **Decision.** Apply BH within each question, partition and model specification, reporting
@@ -1183,7 +1271,13 @@ def _(
     without adjustment. We instead describe a small, uncertain association and show its
     CBSA and threshold alternatives. The adjustment is exploratory within declared families;
     it does not remove uncertainty from the entire sequence of analysis choices.
+    """)
+    return
 
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(f"""
     ---
 
     **Reproducibility and assistance.** The notebook reads fixed, hash-checked M1 inputs;

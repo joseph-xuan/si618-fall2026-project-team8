@@ -10,7 +10,7 @@ Analysis and exported files verified on November 9, 2026. This is a completed an
 - Three genuine decision entries contain Decision, Alternative, Evidence and Consequence. All three alternatives are actually computed.
 - Repeated M1 cleaning and live regional aggregation; fixed-source hashes verified.
 - Geographic preprocessing independently regenerated: every assignment and county attribute matches the embedded lookup.
-- 46 cells executed; 9 embedded figures; no cell errors or console warnings in the final standalone export.
+- 55 cells executed; 9 embedded figures; no cell errors or console warnings in the final standalone export.
 - Summary of findings: 195 words, with one central estimate per question and a concrete final limitation.
 - County, CBSA, pure-CBSA, identical-listing-support, threshold, single-state and county CBSA-cluster alternatives computed.
 - 442 primary/alternative result rows have finite estimates, statistics, intervals and probabilities.
@@ -22,6 +22,8 @@ Analysis and exported files verified on November 9, 2026. This is a completed an
 - M1 and original data preserved; no Canvas upload.
 
 - Static result tables fully embed all 20 RQ1 rows, 30 RQ2 rows and 18 threshold rows; no first-page truncation.
+
+- M1 format alignment: title first, horizontal section rules, matching plot typography, nine numbered captions, and separate decision-log entries. Main model estimates remain unchanged.
 
 ## Feedback and code-style checks
 
@@ -48,5 +50,5 @@ The notebook explicitly states both limitations in Response to feedback. Instruc
 
 ## Fingerprints
 
-- Notebook SHA256: `4713f2eadabdb3052e2845270a8c8d51fe8d8decacb8b390f3041bb9d3c60a87`
-- HTML SHA256: `cbe06c5422fdb944ee5a93fd4a1dc38c8c36000dc2360bd6a0add884ef23b423`
+- Notebook SHA256: `da5ae075a8c20193158d4247c1508ac4e5d0fc2fad8720e9d66578d2cce982bc`
+- HTML SHA256: `42bc4a00b9dada6e3cd642378ede8f89ba2826d4b67823f4d676199387d979b2`
