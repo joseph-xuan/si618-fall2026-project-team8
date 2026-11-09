@@ -1,0 +1,15 @@
+{
+  "executed_cells": 46,
+  "model_rows": 442,
+  "numeric_checks_passed": true,
+  "geographic_lookup_regenerated_and_identical": true,
+  "independent_rerun_maximum_coefficient_error": 8.215650382226158e-15,
+  "n_universities": 2763,
+  "n_unique_listings": 490742,
+  "n_counties": 926,
+  "n_cbsa_partition_areas": 664,
+  "feedback_remaining": [
+    "Full Canvas feedback was not supplied.",
+    "November 11 Project Studio has not yet occurred as of November 9."
+  ]
+}

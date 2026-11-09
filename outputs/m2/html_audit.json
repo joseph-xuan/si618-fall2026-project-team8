@@ -1,0 +1,132 @@
+{
+  "export_command": "uvx marimo export html --sandbox SI618_M2_Team8.py -o SI618_M2_Team8.html",
+  "standalone_directory_had_only_notebook": true,
+  "used_remote_hash_checked_inputs": true,
+  "executed_cells": 46,
+  "cell_errors": [],
+  "console_items": [],
+  "png_figures": 9,
+  "summary_words": 195,
+  "source_matches_export": true,
+  "marimo_normalized_source_bodies_identical": true,
+  "all_static_tables_fully_embedded": true,
+  "static_table_rows": [
+    {
+      "total": 3,
+      "embedded": 3,
+      "page_size": 10
+    },
+    {
+      "total": 5,
+      "embedded": 5,
+      "page_size": 10
+    },
+    {
+      "total": 5,
+      "embedded": 5,
+      "page_size": 10
+    },
+    {
+      "total": 5,
+      "embedded": 5,
+      "page_size": 10
+    },
+    {
+      "total": 5,
+      "embedded": 5,
+      "page_size": 10
+    },
+    {
+      "total": 2,
+      "embedded": 2,
+      "page_size": 10
+    },
+    {
+      "total": 5,
+      "embedded": 5,
+      "page_size": 10
+    },
+    {
+      "total": 4,
+      "embedded": 4,
+      "page_size": 10
+    },
+    {
+      "total": 3,
+      "embedded": 3,
+      "page_size": 10
+    },
+    {
+      "total": 4,
+      "embedded": 4,
+      "page_size": 10
+    },
+    {
+      "total": 2,
+      "embedded": 2,
+      "page_size": 10
+    },
+    {
+      "total": 5,
+      "embedded": 5,
+      "page_size": 10
+    },
+    {
+      "total": 20,
+      "embedded": 20,
+      "page_size": 20
+    },
+    {
+      "total": 2,
+      "embedded": 2,
+      "page_size": 10
+    },
+    {
+      "total": 30,
+      "embedded": 30,
+      "page_size": 30
+    },
+    {
+      "total": 4,
+      "embedded": 4,
+      "page_size": 10
+    },
+    {
+      "total": 3,
+      "embedded": 3,
+      "page_size": 10
+    },
+    {
+      "total": 2,
+      "embedded": 2,
+      "page_size": 10
+    },
+    {
+      "total": 8,
+      "embedded": 8,
+      "page_size": 8
+    },
+    {
+      "total": 18,
+      "embedded": 18,
+      "page_size": 18
+    },
+    {
+      "total": 5,
+      "embedded": 5,
+      "page_size": 5
+    },
+    {
+      "total": 2,
+      "embedded": 2,
+      "page_size": 10
+    },
+    {
+      "total": 4,
+      "embedded": 4,
+      "page_size": 10
+    }
+  ],
+  "notebook_sha256": "4713f2eadabdb3052e2845270a8c8d51fe8d8decacb8b390f3041bb9d3c60a87",
+  "html_sha256": "cbe06c5422fdb944ee5a93fd4a1dc38c8c36000dc2360bd6a0add884ef23b423"
+}

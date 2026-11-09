@@ -1,0 +1,35 @@
+{
+  "study_year": 2019,
+  "input_sha256": {
+    "data/raw/ipeds_2019/hd2019.csv": "3fb800782915014e0e03b8f7f58a95a8fe84fbb242ef488e919dcd7b13661f29",
+    "data/raw/ipeds_2019/ef2019a_rv.csv": "00a203a3e71c34b844b8dea1e783caed6a2bc1e1c4b337edeaf8bd25fdc04ead",
+    "data/processed/vehicles_us_2019_sample.parquet": "6b6544397bc0a4ad2d85951a6ec1d1e1ef4ace8f55e34f83e173db40021320dc",
+    "outputs/automotive_sample_metadata.json": "6e099d73dda461a1ed22767d436fa73d965c4cb0b2bb34bc9080713719086cda"
+  },
+  "geography_inputs": [
+    {
+      "name": "tl_2019_us_county.zip",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip",
+      "bytes": 79237324,
+      "sha256": "4a2cdcc8a5d58caf88f9dc6595c4d89c51fdb56de738f615a8c5e3814dfcdea5"
+    },
+    {
+      "name": "list1_Sep_2018.xls",
+      "url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2018/delineation-files/list1_Sep_2018.xls",
+      "bytes": 454144,
+      "sha256": "22ba2e944ce1aa88b0bf0d09530d08f26c17a0bba7ae823290e7c4816316418c"
+    },
+    {
+      "name": "co-est2019-alldata.csv",
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2010-2019/counties/totals/co-est2019-alldata.csv",
+      "bytes": 3644730,
+      "sha256": "654032fbb805bc9a7c124ba04ad47e170f5d9dc9d4974a73edfc20598fde77d8"
+    }
+  ],
+  "assignment_codes_sha256": "8c3380dcf36d721a59880efb1fa219f60c607f49b8bb3a25f8131965c5b803a5",
+  "county_attributes_sha256": "c491bcbb36d18c64748855d3b2bff485fe670c5d9a46b9da6ca59068e52e12a5",
+  "scope": "Contiguous 48 states and District of Columbia",
+  "primary_partition": "County",
+  "comparison_partition": "CBSA, retaining outside counties separately",
+  "geographic_assignment_regenerated_independently": true
+}

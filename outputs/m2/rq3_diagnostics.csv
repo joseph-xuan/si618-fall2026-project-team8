@@ -1,0 +1,3 @@
+partition,n,residual_skew,max_leverage,cooks_above_4_over_n,fitted_outside_0_100,omitted_area,coefficient_omit_most_influential
+County,426,-0.0035932283166961302,0.510722642613742,25,0,44003,-0.12675209029171894
+CBSA + outside counties,274,0.19684574980633826,0.5186501575998775,23,0,CBSA_42140,-0.34775770967375663

@@ -1,0 +1,3 @@
+outcome,n,residual_skew,max_leverage,cooks_above_4_over_n,fitted_outside_0_100,omitted_area,coefficient_omit_most_influential
+body_suv,360,0.12720524642115533,0.5150645325010843,31,0.0,05131,0.1502064648145029
+age_median,438,4.578028187709236,0.5321276824031184,14,,55127,-0.15577626533106112

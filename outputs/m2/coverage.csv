@@ -1,0 +1,5 @@
+partition,areas_with_universities,unique_listings,areas_100_known_brand,areas_100_known_body,areas_100_known_age
+County,926,410767,482,409,495
+CBSA + outside counties,664,454275,320,276,329
+"CBSA, same listing support",664,410767,302,255,313
+CBSA only,565,452493,319,276,328

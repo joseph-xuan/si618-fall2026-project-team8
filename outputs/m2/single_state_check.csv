@@ -1,0 +1,3 @@
+partition,question,outcome,spec,covariance,n,clusters,coefficient,ci_low,ci_high,statistic,p,reference
+County,3,japanese_share,full,HC3,426,264,-0.11723523320628543,-0.9430996481420846,0.7086291817295136,-0.2782258572326742,0.7808389869686184,z (HC3)
+CBSA + outside counties,3,japanese_share,full,HC3,240,240,-0.48980186353192323,-1.8389094716481424,0.859305744584296,-0.7115770501239906,0.4767267226737577,z (HC3)
